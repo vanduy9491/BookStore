@@ -26,7 +26,11 @@ namespace BookStore.Entities
         [Required]
         public bool  IsDeleted { get; set; }
         [Required]
+        [MaxLength(300)]
+        public string Photo { get; set; }
+        [Required]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
     }
 }
