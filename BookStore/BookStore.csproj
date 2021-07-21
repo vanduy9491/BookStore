@@ -9,10 +9,15 @@
     <Compile Remove="Migrations\20210716031429_INDB.Designer.cs" />
     <Compile Remove="Migrations\20210716032137_SeedingData.cs" />
     <Compile Remove="Migrations\20210716032137_SeedingData.Designer.cs" />
+    <Compile Remove="Migrations\20210721030659_Seeding_AspNetUser_Table.cs" />
+    <Compile Remove="Migrations\20210721030659_Seeding_AspNetUser_Table.Designer.cs" />
+    <Compile Remove="Migrations\20210721035521_Seeding_AspNetRole_AspNetUserRole_Tables.cs" />
+    <Compile Remove="Migrations\20210721035521_Seeding_AspNetRole_AspNetUserRole_Tables.Designer.cs" />
+    <Compile Remove="Migrations\20210721035713_Seeding_AspNetRole_AspNetUserRole_Tables.cs" />
+    <Compile Remove="Migrations\20210721035713_Seeding_AspNetRole_AspNetUserRole_Tables.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
@@ -60,6 +65,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.17" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.17" />
