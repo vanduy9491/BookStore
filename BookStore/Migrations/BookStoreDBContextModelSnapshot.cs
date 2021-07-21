@@ -92,12 +92,15 @@ namespace BookStore.Migrations
                         {
                             Id = "2c0fca4e-9376-4a70-bcc6-35bebe497866",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7ab00feb-3e01-40ed-99a0-0be0620edf46",
+                            ConcurrencyStamp = "f74911c3-3977-4faf-be24-8e005320c5db",
                             Email = "khoa.nguyen@codegym.vn",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
+                            NormalizedEmail = "khoa.nguyen@codegym.vn",
+                            NormalizedUserName = "khoa.nguyen@codegym.vn",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKyxC8PZoikTyE2Ee/73PlepBes3magOhG9l7dS9dIaKfIaL04jfsZK7L8q8U9GdOw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b575481b-3e16-472f-adc1-0a2af1bd73cc",
+                            SecurityStamp = "e2fe1740-d5f0-40af-b62a-83cceed19770",
                             TwoFactorEnabled = false,
                             UserName = "khoa.nguyen@codegym.vn"
                         });
@@ -251,8 +254,9 @@ namespace BookStore.Migrations
                         new
                         {
                             Id = "c0c6661b-0964-4e62-8083-3cac6a6741ec",
-                            ConcurrencyStamp = "b18b8a35-38d8-4680-abe2-42f88102c7bc",
-                            Name = "SystemAdmin"
+                            ConcurrencyStamp = "1",
+                            Name = "SystemAdmin",
+                            NormalizedName = "SystemAdmin"
                         });
                 });
 

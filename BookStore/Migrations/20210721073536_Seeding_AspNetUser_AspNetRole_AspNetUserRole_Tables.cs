@@ -9,12 +9,12 @@ namespace BookStore.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "c0c6661b-0964-4e62-8083-3cac6a6741ec", "b18b8a35-38d8-4680-abe2-42f88102c7bc", "SystemAdmin", null });
+                values: new object[] { "c0c6661b-0964-4e62-8083-3cac6a6741ec", "1", "SystemAdmin", "SystemAdmin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Avatar", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "2c0fca4e-9376-4a70-bcc6-35bebe497866", 0, null, "7ab00feb-3e01-40ed-99a0-0be0620edf46", "khoa.nguyen@codegym.vn", false, false, null, null, null, null, null, false, "b575481b-3e16-472f-adc1-0a2af1bd73cc", false, "khoa.nguyen@codegym.vn" });
+                values: new object[] { "2c0fca4e-9376-4a70-bcc6-35bebe497866", 0, null, "f74911c3-3977-4faf-be24-8e005320c5db", "khoa.nguyen@codegym.vn", false, false, null, "khoa.nguyen@codegym.vn", "khoa.nguyen@codegym.vn", "AQAAAAEAACcQAAAAEKyxC8PZoikTyE2Ee/73PlepBes3magOhG9l7dS9dIaKfIaL04jfsZK7L8q8U9GdOw==", null, false, "e2fe1740-d5f0-40af-b62a-83cceed19770", false, "khoa.nguyen@codegym.vn" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",

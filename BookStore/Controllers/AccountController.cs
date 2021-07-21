@@ -54,7 +54,7 @@ namespace BookStore.Controllers
                     ViewBag.Error = "User is existing";
                     return View();
                 }
-                var signInResult = await signInManager.PasswordSignInAsync(user, login.Password, login.RememberMe, false);
+                var signInResult = await signInManager.PasswordSignInAsync(user.Email, login.Password, login.RememberMe, false);
                 if (signInResult.Succeeded)
                 {
                     return RedirectToAction("Index", "Dashboard");
