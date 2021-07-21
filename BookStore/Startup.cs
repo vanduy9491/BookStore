@@ -1,8 +1,10 @@
 using BookStore.DBContexts;
+using BookStore.Entities;
 using BookStore.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,9 +28,13 @@ namespace BookStore
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddMvc(option => option.EnableEndpointRouting = false);
-            services.AddDbContext<BookStoreDBContext>(option => option.UseSqlServer(configuration.GetConnectionString("BookStoreConnection")));
+            services.AddDbContextPool<BookStoreDBContext>(option => option.UseSqlServer(configuration.GetConnectionString("BookStoreConnection")));
+            services.AddIdentity<AppIdentityUser, IdentityRole>().AddEntityFrameworkStores<BookStoreDBContext>();
             services.AddScoped<ICategoryService, CategoryService>();
+            //services.AddScoped<IUserService, UserService>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,17 +45,13 @@ namespace BookStore
                 app.UseDeveloperExceptionPage();
             }
 
-            
-            app.UseMvcWithDefaultRoute();
-            //app.UseRouting();
+            app.UseStaticFiles();
+            app.UseRouting();
 
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapGet("/", async context =>
-            //    {
-            //        await context.Response.WriteAsync("Hello World!");
-            //    });
-            //});
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(name: "default", pattern: "{controller=Account}/{action=Login}/{id?}");
+            });
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using BookStore.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace BookStore.DBContexts
 {
-    public class BookStoreDBContext : DbContext
+    public class BookStoreDBContext : IdentityDbContext<AppIdentityUser>
     {
-        public BookStoreDBContext(DbContextOptions options) : base(options)
+        public BookStoreDBContext(DbContextOptions<BookStoreDBContext> options) : base(options)
         {
 
         }
@@ -68,6 +70,48 @@ namespace BookStore.DBContexts
                     IsDeleted = false,
                     CategoryId = 2,
                     Photo = "images/no-photo.jpg"
+                });
+            SeedingAspNetUser(modelBuilder);
+            SeedingAspNetRole(modelBuilder);
+            SeedingAspNetUserRole(modelBuilder);
+        }
+
+        private void SeedingAspNetUser(ModelBuilder modelBuilder)
+        {
+            AppIdentityUser user = new AppIdentityUser()
+            {
+                Id = "2c0fca4e-9376-4a70-bcc6-35bebe497866",
+                UserName = "khoa.nguyen@codegym.vn",
+                Email = "khoa.nguyen@codegym.vn",
+                NormalizedEmail = "khoa.nguyen@codegym.vn",
+                NormalizedUserName = "khoa.nguyen@codegym.vn",
+                LockoutEnabled = false
+            };
+            PasswordHasher<AppIdentityUser> passwordHasher = new PasswordHasher<AppIdentityUser>();
+            var passwordHash = passwordHasher.HashPassword(user, "Asdf1234!");
+            user.PasswordHash = passwordHash;
+
+            modelBuilder.Entity<AppIdentityUser>().HasData(user);
+        }
+
+        private void SeedingAspNetRole(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<IdentityRole>().HasData(
+                new IdentityRole()
+                {
+                    Id = "c0c6661b-0964-4e62-8083-3cac6a6741ec",
+                    Name = "SystemAdmin",
+                    NormalizedName = "SystemAdmin",
+                    ConcurrencyStamp = "1"
+                });
+        }
+        private void SeedingAspNetUserRole(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(
+                new IdentityUserRole<string>
+                {
+                    RoleId = "c0c6661b-0964-4e62-8083-3cac6a6741ec",
+                    UserId = "2c0fca4e-9376-4a70-bcc6-35bebe497866"
                 });
         }
     }
