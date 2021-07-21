@@ -83,9 +83,13 @@ namespace BookStore.DBContexts
                 Id = "2c0fca4e-9376-4a70-bcc6-35bebe497866",
                 UserName = "khoa.nguyen@codegym.vn",
                 Email = "khoa.nguyen@codegym.vn",
+                NormalizedEmail = "khoa.nguyen@codegym.vn",
+                NormalizedUserName = "khoa.nguyen@codegym.vn",
+                LockoutEnabled = false
             };
             PasswordHasher<AppIdentityUser> passwordHasher = new PasswordHasher<AppIdentityUser>();
-            passwordHasher.HashPassword(user, "Asdf1234!");
+            var passwordHash = passwordHasher.HashPassword(user, "Asdf1234!");
+            user.PasswordHash = passwordHash;
 
             modelBuilder.Entity<AppIdentityUser>().HasData(user);
         }
@@ -96,7 +100,9 @@ namespace BookStore.DBContexts
                 new IdentityRole()
                 {
                     Id = "c0c6661b-0964-4e62-8083-3cac6a6741ec",
-                    Name = "SystemAdmin"
+                    Name = "SystemAdmin",
+                    NormalizedName = "SystemAdmin",
+                    ConcurrencyStamp = "1"
                 });
         }
         private void SeedingAspNetUserRole(ModelBuilder modelBuilder)
