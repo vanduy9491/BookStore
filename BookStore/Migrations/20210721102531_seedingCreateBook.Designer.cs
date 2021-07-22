@@ -4,14 +4,16 @@ using BookStore.DBContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BookStore.Migrations
 {
     [DbContext(typeof(BookStoreDBContext))]
-    partial class BookStoreDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210721102531_seedingCreateBook")]
+    partial class seedingCreateBook
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,16 +94,15 @@ namespace BookStore.Migrations
                         {
                             Id = "2c0fca4e-9376-4a70-bcc6-35bebe497866",
                             AccessFailedCount = 0,
-                            Avatar = "/images/khoanguyen.jpg",
-                            ConcurrencyStamp = "95826c2a-d46d-4f03-bc7d-5096baeb2020",
+                            ConcurrencyStamp = "75e25a63-095b-43a6-a93a-235f8ae04e5f",
                             Email = "khoa.nguyen@codegym.vn",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "khoa.nguyen@codegym.vn",
                             NormalizedUserName = "khoa.nguyen@codegym.vn",
-                            PasswordHash = "AQAAAAEAACcQAAAAEON4Wm7ALIvAjKGV5Db4UwReGQ+DecsQnPRZo1hspYronrc+ufxo2M5jv+0gzl1ivQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFFPrekJwR4j7DV3RM64EhSxNTEG5qONy+scIaEqsg2cVfLHANpvcEda83T7iRI2ZQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "19d3cf62-c0c5-4693-9519-e269fb7d6bcb",
+                            SecurityStamp = "34b2f656-14cc-4b62-9640-a0a75479245c",
                             TwoFactorEnabled = false,
                             UserName = "khoa.nguyen@codegym.vn"
                         });
@@ -161,7 +162,7 @@ namespace BookStore.Migrations
                             CategoryId = 4,
                             Description = "Truyện về chú mèo máy Doraemon",
                             IsDeleted = false,
-                            Photo = "~/images/Doraemon1.jpg",
+                            Photo = "images/no-photo.jpg",
                             Price = 10000,
                             PublishYear = 2000
                         },
@@ -173,7 +174,7 @@ namespace BookStore.Migrations
                             CategoryId = 2,
                             Description = "Sách giáo khoa Tiếng Anh",
                             IsDeleted = false,
-                            Photo = "~/images/TiengAnh12.jpg",
+                            Photo = "images/no-photo.jpg",
                             Price = 12000,
                             PublishYear = 2000
                         });
