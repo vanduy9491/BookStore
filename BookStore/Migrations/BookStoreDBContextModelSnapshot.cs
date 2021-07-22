@@ -92,15 +92,16 @@ namespace BookStore.Migrations
                         {
                             Id = "2c0fca4e-9376-4a70-bcc6-35bebe497866",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f74911c3-3977-4faf-be24-8e005320c5db",
+                            Avatar = "/images/khoanguyen.jpg",
+                            ConcurrencyStamp = "95826c2a-d46d-4f03-bc7d-5096baeb2020",
                             Email = "khoa.nguyen@codegym.vn",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "khoa.nguyen@codegym.vn",
                             NormalizedUserName = "khoa.nguyen@codegym.vn",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKyxC8PZoikTyE2Ee/73PlepBes3magOhG9l7dS9dIaKfIaL04jfsZK7L8q8U9GdOw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEON4Wm7ALIvAjKGV5Db4UwReGQ+DecsQnPRZo1hspYronrc+ufxo2M5jv+0gzl1ivQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e2fe1740-d5f0-40af-b62a-83cceed19770",
+                            SecurityStamp = "19d3cf62-c0c5-4693-9519-e269fb7d6bcb",
                             TwoFactorEnabled = false,
                             UserName = "khoa.nguyen@codegym.vn"
                         });

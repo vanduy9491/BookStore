@@ -10,5 +10,6 @@ namespace BookStore.Services
     public interface IUserService
     {
         Task<LoginResult> Login(Login LoginUser);
+        void SignOut();
     }
 }
