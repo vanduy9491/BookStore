@@ -1,25 +1,24 @@
-﻿<div class="row">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th style="width: 10px">#</th>
-                <th>Category name</th>
-                <th>Products</th>
-                <th style="width: 40px">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1.</td>
-                <td>Khoa học viễn tưởng</td>
-                <td class="text-right">
-                    10
-                </td>
-                <td>
-                    <a href="#"><i class="fa fa-edit"></i></a>
-                    <a href="#"><i class="fa fa-trash"></i></a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+﻿@model List<Book>
+
+@foreach (var book in Model)
+{
+    <div class="col-sm-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                @book.BookName
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src=@Url.Content(book.Photo) class="img-responsive" style="width:100%" alt="Image">
+                    </div>
+                    <div class="col-sm-8">
+                        <p>Book Id: @book.BookId</p>
+                        <p>Publish Year:@book.PublishYear</p>
+                        <p>Description: @book.Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

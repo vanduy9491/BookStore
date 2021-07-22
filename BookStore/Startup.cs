@@ -30,9 +30,10 @@ namespace BookStore
         {
             services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddMvc(option => option.EnableEndpointRouting = false);
-            services.AddDbContextPool<BookStoreDBContext>(option => option.UseSqlServer(configuration.GetConnectionString("BookStoreConnection")));
+            services.AddDbContext<BookStoreDBContext>(option => option.UseSqlServer(configuration.GetConnectionString("BookStoreConnection")));
             services.AddIdentity<AppIdentityUser, IdentityRole>().AddEntityFrameworkStores<BookStoreDBContext>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IBookService, BookService>();
             //services.AddScoped<IUserService, UserService>();
             
         }

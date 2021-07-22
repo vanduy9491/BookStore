@@ -57,7 +57,7 @@ namespace BookStore.DBContexts
                    Description = "Truyện về chú mèo máy Doraemon",
                    IsDeleted = false,
                    CategoryId = 4,
-                   Photo = "images/no-photo.jpg"
+                   Photo = "~/images/Doraemon1.jpg"
                },
                 new Book()
                 {
@@ -69,7 +69,7 @@ namespace BookStore.DBContexts
                     Description = "Sách giáo khoa Tiếng Anh",
                     IsDeleted = false,
                     CategoryId = 2,
-                    Photo = "images/no-photo.jpg"
+                    Photo = "~/images/TiengAnh12.jpg"
                 });
             SeedingAspNetUser(modelBuilder);
             SeedingAspNetRole(modelBuilder);
