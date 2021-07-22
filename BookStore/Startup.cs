@@ -33,7 +33,7 @@ namespace BookStore
             services.AddDbContextPool<BookStoreDBContext>(option => option.UseSqlServer(configuration.GetConnectionString("BookStoreConnection")));
             services.AddIdentity<AppIdentityUser, IdentityRole>().AddEntityFrameworkStores<BookStoreDBContext>();
             services.AddScoped<ICategoryService, CategoryService>();
-            //services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserService, UserService>();
             
         }
 
@@ -44,7 +44,7 @@ namespace BookStore
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseAuthentication();
             app.UseStaticFiles();
             app.UseRouting();
 

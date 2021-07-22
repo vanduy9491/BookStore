@@ -12,20 +12,12 @@ namespace BookStore.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<AppIdentityUser> userManager;
-        private readonly SignInManager<AppIdentityUser> signInManager;
 
-        //private readonly IUserService userService;
+        private readonly IUserService userService;
 
-        //public AccountController(IUserService userService)
-        //{
-        //    this.userService = userService;
-        //}
-        public AccountController(UserManager<AppIdentityUser> userManager,
-                                SignInManager<AppIdentityUser> signInManager)
+        public AccountController(IUserService userService)
         {
-            this.userManager = userManager;
-            this.signInManager = signInManager;
+            this.userService = userService;
         }
         [HttpGet]
         public IActionResult Login()
@@ -35,33 +27,24 @@ namespace BookStore.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(Login login)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    var result = await userService.Login(login);
-            //    if (result.Success)
-            //    {
-            //        return RedirectToAction("Index", "Dashboard");
-            //    }
-            //    ViewBag.Error = result.Message;
-            //    return View();
-            //}
-            //return View();
             if (ModelState.IsValid)
             {
-                var user = await userManager.FindByNameAsync(login.Email);
-                if (user == null)
-                {
-                    ViewBag.Error = "User is existing";
-                    return View();
-                }
-                var signInResult = await signInManager.PasswordSignInAsync(user.Email, login.Password, login.RememberMe, false);
-                if (signInResult.Succeeded)
+                var result = await userService.Login(login);
+                if (result.Success)
                 {
                     return RedirectToAction("Index", "Dashboard");
                 }
+                ViewBag.Error = result.Message;
+                return View();
             }
-            ViewBag.Error = "Something went wrong, please try again later.";
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Logout()
+        {
+            userService.SignOut();
+            return RedirectToAction("Login", "Account");
         }
     }
 }
