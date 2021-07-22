@@ -85,8 +85,7 @@ namespace BookStore.DBContexts
                 Email = "khoa.nguyen@codegym.vn",
                 NormalizedEmail = "khoa.nguyen@codegym.vn",
                 NormalizedUserName = "khoa.nguyen@codegym.vn",
-                LockoutEnabled = false,
-                Avatar = "/images/khoanguyen.jpg"
+                LockoutEnabled = false
             };
             PasswordHasher<AppIdentityUser> passwordHasher = new PasswordHasher<AppIdentityUser>();
             var passwordHash = passwordHasher.HashPassword(user, "Asdf1234!");
